@@ -18,9 +18,9 @@ const AuthTokenForm = () => {
 
   return (
     <div>
-      <h3>Auth Token Generator</h3>  
+      <h3>Auth Token Generator</h3>
+      <h4>Add this token to your .env file</h4>  
       <form onSubmit={handleAuthToken}>
-        <input type="text"/>
         <button type="submit">Get Auth Token</button>
       </form>
       {response && (
