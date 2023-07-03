@@ -6,13 +6,11 @@ function RegisterForm() {
     // Define state variables to store form input values
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
-    const [addressAlias, setAddressAlias] = useState('');
     const [streetAddress1, setStreetAddress] = useState('');
     const [city, setCity] = useState('');
     const [state, setState] = useState('');
     const [country, setCountry] = useState('');
     const [postalCode, setPostalCode] = useState('');
-    const [identityAlias, setIdentityAlias] = useState('');
     const [identityValue, setIdentityValue] = useState('');
     const [entityName, setEntityName] = useState('');
     const [birthdate, setBirthdate] = useState('');
@@ -26,28 +24,36 @@ function RegisterForm() {
     // Define a function to handle form submission
     const handleRegisterSubmit = async (e) => {
       e.preventDefault();
-  
-      // Create a data object with the form input values
-      const formData = {
-        entity: {
-          first_name: firstName,
-          last_name: lastName,
-          address_alias: addressAlias,
+ 
+    const formData = {
+    
+        address: {
+          address_alias: "Home",
           street_address_1: streetAddress1,
           city: city,
           state: state,
           country: country,
           postal_code: postalCode,
-          identity_alias: identityAlias,
-          identity_value: identityValue,
-          entity_name: entityName,
-          birthdate: birthdate,
-          email: email,
-          phone: phone
-
-          // Add other form fields to match the data structure in the API file
         },
-      };
+        identity: {
+          identity_alias: "SSN",
+          identity_value: identityValue,
+        },
+        contact: {
+          phone: phone,
+          contact_alias: '',
+          email: email,
+        },
+        entity: {
+          birthdate: birthdate,
+          entity_name: entityName,
+          first_name: firstName,
+          last_name: lastName,
+          relationship: 'user',
+        },
+    }
+  
+
   
       // Make the API request
       try {
@@ -61,7 +67,7 @@ function RegisterForm() {
     // Render the form
     return (
         <div>
-      <h3>Register</h3>
+      <h3>Register for Individuals</h3>
       <form onSubmit={handleRegisterSubmit}>
         <input
           type="text"
@@ -75,11 +81,12 @@ function RegisterForm() {
           value={lastName}
           onChange={(e) => setLastName(e.target.value)}
         />
+
         <input
           type="text"
-          placeholder="address alias"
-          value={addressAlias}
-          onChange={(e) => setAddressAlias(e.target.value)}
+          placeholder="entity name"
+          value={entityName}
+          onChange={(e) => setEntityName(e.target.value)}
         />
         <input
           type="text"
@@ -111,29 +118,16 @@ function RegisterForm() {
           value={postalCode}
           onChange={(e) => setPostalCode(e.target.value)}
         />
-       <input
-          type="text"
-          placeholder="SSN"
-          value={identityAlias}
-          onChange={(e) => setIdentityAlias(e.target.value)}
-        />
 
         <input
           type="text"
-          placeholder="Identity Value"
+          placeholder="SSN#"
           value={identityValue}
           onChange={(e) => setIdentityValue(e.target.value)}
         />
-
         <input
           type="text"
-          placeholder="entity name"
-          value={entityName}
-          onChange={(e) => setEntityName(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="birthdate"
+          placeholder="birthdate ex 1900-09-09"
           value={birthdate}
           onChange={(e) => setBirthdate(e.target.value)}
         />
