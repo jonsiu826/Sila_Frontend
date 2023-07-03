@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import api from '../routes/requestKycApi';
+import api from '../routes/checkKycApi';
 
 const RequestKycForm = () => {
   const [userHandle, setUserHandle] = useState('');
@@ -9,11 +9,11 @@ const RequestKycForm = () => {
     setUserHandle(event.target.value);
   };
 
-  const handleCheckKyc = async (event) => {
+  const handleRequestKyc = async (event) => {
     event.preventDefault();
 
     try {
-      const response = await api.requestKYC({ userHandle });
+      const response = await api.checkKYC({ userHandle });
       setResponse({ userHandle, response });
     } catch (error) {
       console.error('Error checking handle:', error);
@@ -22,10 +22,10 @@ const RequestKycForm = () => {
 
   return (
     <div>
-      <h3>Request KYC</h3>  
-      <form onSubmit={handleCheckKyc}>
+      <h3>Check KYC</h3>  
+      <form onSubmit={handleRequestKyc}>
         <input type="text" value={userHandle} onChange={handleInputChange} />
-        <button type="submit">Request KYC</button>
+        <button type="submit">Check KYC</button>
       </form>
       {response && (
         <div>
