@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import api from '../routes/checkKycApi';
 
-const RequestKycForm = () => {
+const CheckKycForm = () => {
   const [userHandle, setUserHandle] = useState('');
   const [response, setResponse] = useState(null);
 
@@ -9,7 +9,7 @@ const RequestKycForm = () => {
     setUserHandle(event.target.value);
   };
 
-  const handleRequestKyc = async (event) => {
+  const handleCheckKyc = async (event) => {
     event.preventDefault();
 
     try {
@@ -23,7 +23,7 @@ const RequestKycForm = () => {
   return (
     <div>
       <h3>Check KYC</h3>  
-      <form onSubmit={handleRequestKyc}>
+      <form onSubmit={handleCheckKyc}>
         <input type="text" value={userHandle} onChange={handleInputChange} />
         <button type="submit">Check KYC</button>
       </form>
@@ -37,4 +37,4 @@ const RequestKycForm = () => {
   );
 };
 
-export default RequestKycForm;
+export default CheckKycForm;

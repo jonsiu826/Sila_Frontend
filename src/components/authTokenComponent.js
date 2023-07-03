@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import api from '../routes/requestKycApi';
+import api from '../routes/authTokenApi';
 
-const RequestKycForm = () => {
+const AuthTokenForm = () => {
   const [userHandle, setUserHandle] = useState('');
   const [response, setResponse] = useState(null);
 
@@ -9,7 +9,7 @@ const RequestKycForm = () => {
     setUserHandle(event.target.value);
   };
 
-  const handleRequestKyc = async (event) => {
+  const handleCheckKyc = async (event) => {
     event.preventDefault();
 
     try {
@@ -23,7 +23,7 @@ const RequestKycForm = () => {
   return (
     <div>
       <h3>Request KYC</h3>  
-      <form onSubmit={handleRequestKyc}>
+      <form onSubmit={handleCheckKyc}>
         <input type="text" value={userHandle} onChange={handleInputChange} />
         <button type="submit">Request KYC</button>
       </form>
