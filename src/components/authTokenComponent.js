@@ -2,34 +2,29 @@ import React, { useState } from 'react';
 import api from '../routes/authTokenApi';
 
 const AuthTokenForm = () => {
-  const [userHandle, setUserHandle] = useState('');
   const [response, setResponse] = useState(null);
 
-  const handleInputChange = (event) => {
-    setUserHandle(event.target.value);
-  };
 
-  const handleCheckKyc = async (event) => {
+  const handleAuthToken = async (event) => {
     event.preventDefault();
 
     try {
-      const response = await api.requestKYC({ userHandle });
-      setResponse({ userHandle, response });
+      const response = await api.authToken();
+      setResponse({ response });
     } catch (error) {
-      console.error('Error checking handle:', error);
+      console.error('Error getting Auth Token:', error);
     }
   };
 
   return (
     <div>
-      <h3>Request KYC</h3>  
-      <form onSubmit={handleCheckKyc}>
-        <input type="text" value={userHandle} onChange={handleInputChange} />
-        <button type="submit">Request KYC</button>
+      <h3>Auth Token Generator</h3>  
+      <form onSubmit={handleAuthToken}>
+        <input type="text"/>
+        <button type="submit">Get Auth Token</button>
       </form>
       {response && (
         <div>
-          <p>User Handle: {response.userHandle}</p>
           <p>API Response: {JSON.stringify(response.response.data)}</p>
         </div>
       )}
@@ -37,4 +32,4 @@ const AuthTokenForm = () => {
   );
 };
 
-export default RequestKycForm;
+export default AuthTokenForm;

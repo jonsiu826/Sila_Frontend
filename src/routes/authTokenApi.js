@@ -1,15 +1,11 @@
 // third party packages
 import axios from 'axios';
-const { SILA_URLS } = require('../../consts');
 
 // consts
-const { APP_HANDLE, CLIENT_ID, CLIENT_SECRET } = require('../../../.env');
-const authTokenString = 'Basic ' + Buffer.from(CLIENT_ID + ':' + CLIENT_SECRET).toString('base64');
+const { APP_HANDLE, CLIENT_ID, CLIENT_SECRET } = require('../.env');
+const { SILA_URLS } = require('../consts')
+const authTokenString = 'Basic ' + btoa(CLIENT_ID + ':' + CLIENT_SECRET);
 
-/**
- * requests KYC for specified entity
- * @param data.userHandle [required] entity to recieve KYC request
- */
 async function authToken(data) {
     // prepare the request body
     const body = {

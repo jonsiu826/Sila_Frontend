@@ -16,7 +16,7 @@ const CheckKycForm = () => {
       const response = await api.checkKYC({ userHandle });
       setResponse({ userHandle, response });
     } catch (error) {
-      console.error('Error checking handle:', error);
+      console.error('Error checking kyc:', error);
     }
   };
 
