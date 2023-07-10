@@ -5,6 +5,7 @@ import RegisterComponent from './components/registerComponent';
 import CheckKycForm from './components/checkKycComponent';
 import RequestKycForm from './components/requestKycComponent';
 import AuthTokenForm from './components/authTokenComponent';
+import IssueSilaForm from './components/transactions/issueSilaComponent';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <RegisterComponent />
       <RequestKycForm />
       <CheckKycForm />
+      <IssueSilaForm />
     </div>
   );
 }
