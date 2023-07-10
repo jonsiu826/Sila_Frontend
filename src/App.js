@@ -6,6 +6,7 @@ import CheckKycForm from './components/checkKycComponent';
 import RequestKycForm from './components/requestKycComponent';
 import AuthTokenForm from './components/authTokenComponent';
 import IssueSilaForm from './components/transactions/issueSilaComponent';
+import TransferSilaForm from './components/transactions/transferSilaComponent';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <RequestKycForm />
       <CheckKycForm />
       <IssueSilaForm />
+      <TransferSilaForm />
     </div>
   );
 }
