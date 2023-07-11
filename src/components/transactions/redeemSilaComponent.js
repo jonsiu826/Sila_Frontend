@@ -1,42 +1,40 @@
 import React, { useState } from 'react';
-import api from '../../routes/transactions/transferSilaApi';
+import api from '../../routes/transactions/redeemSilaApi';
 
-const TransferSilaForm = () => {
+const RedeemSilaForm = () => {
   const [userHandle, setUserHandle] = useState('');
-  const [destinationHandle, setDestinationHandle] = useState('');
   const [amount, setAmount] = useState('');
   const [sourceId, setSourceId] = useState('')
   const [destinationId, setDestinationId] = useState('')
   const [response, setResponse] = useState(null);
 
-  const handleRequestTransferSila = async (event) => {
+
+  const handleInputChange = (event) => {
+    setUserHandle(event.target.value);
+  };
+
+  const handleRequestRedeemSila = async (event) => {
     event.preventDefault();
     
     try {
-      const response = await api.transferSila({userHandle, destinationHandle, amount, destinationId, sourceId});
+      const response = await api.redeemSila({userHandle, amount, destinationId, sourceId});
       console.log('API Response:', response); // Add this line for debugging purposes
       setResponse({ userHandle, response });
     } catch (error) {
-      console.error('Error submitting /transfer_sila request:', error);
+      console.error('Error submitting /redeem_sila request:', error);
     }
   };
   
 
   return (
     <div>
-      <h3>Transfer Sila</h3>  
-      <form onSubmit={handleRequestTransferSila}>
+      <h3>Redeem Sila</h3>  
+      <form onSubmit={handleRequestRedeemSila}>
       <input 
          type="text" 
-         placeholder='Sending Userhandle'
+         placeholder='userhandle'
          value={userHandle} 
-         onChange={(e) => setUserHandle(e.target.value)}
-        />
-        <input 
-         type="text" 
-         placeholder='Receiving Userhandle'
-         value={destinationHandle} 
-         onChange={(e) => setDestinationHandle(e.target.value)}
+         onChange={handleInputChange}
         />
         <input
           type="integer"
@@ -44,7 +42,7 @@ const TransferSilaForm = () => {
           value={amount}
           onChange={(e) => setAmount(e.target.value)}
         />
-        <input
+         <input
           type="integer"
           placeholder="Source Id"
           value={sourceId}
@@ -56,12 +54,12 @@ const TransferSilaForm = () => {
           value={destinationId}
           onChange={(e) => setDestinationId(e.target.value)}
         />
-        <button type="submit">Transfer Sila</button>
+        
+         <button type="submit">Redeem Sila</button>
       </form>
       {response && (
         <div>
-          <p>Sending User Handle: {response.userHandle}</p>
-          <p>Receiving User Handle: {destinationHandle}</p>
+          <p>User Handle: {response.userHandle}</p>
           <p>API Response: {JSON.stringify(response.response.data)}</p>
         </div>
       )}
@@ -69,4 +67,4 @@ const TransferSilaForm = () => {
   );
 };
 
-export default TransferSilaForm;
+export default RedeemSilaForm;
