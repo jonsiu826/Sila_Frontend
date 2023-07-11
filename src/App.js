@@ -8,6 +8,8 @@ import AuthTokenForm from './components/authTokenComponent';
 import IssueSilaForm from './components/transactions/issueSilaComponent';
 import TransferSilaForm from './components/transactions/transferSilaComponent';
 import RedeemSilaForm from './components/transactions/redeemSilaComponent';
+import GetPaymentMethodForm from './components/accounts/getPaymentMethodComponent';
+
 
 function App() {
   return (
@@ -21,6 +23,7 @@ function App() {
       <IssueSilaForm />
       <TransferSilaForm />
       <RedeemSilaForm />
+      <GetPaymentMethodForm />
     </div>
   );
 }
