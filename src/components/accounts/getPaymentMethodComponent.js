@@ -24,13 +24,13 @@ const GetPaymentMethodForm = () => {
     <div>
       <h3>Get Payment Method KYC</h3>  
       <form onSubmit={handleGetPaymentMethod}>
-        <input type="text" value={userHandle} onChange={handleInputChange} />
+        <input type="text" placeholder='userhandle' value={userHandle} onChange={handleInputChange} />
         <button type="submit">Get Payment Method</button>
       </form>
       {response && (
         <div>
           <p>User Handle: {response.userHandle}</p>
-          <p>API Response: {JSON.stringify(response.response.data)}</p>
+          <p>API Response: <pre>{JSON.stringify(response.response.data, null, 2)}</pre></p>
         </div>
       )}
     </div>

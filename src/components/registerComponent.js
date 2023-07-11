@@ -147,7 +147,7 @@ function RegisterForm() {
       </form>
       {response &&(
           <div>
-              <p>API Response: {JSON.stringify(response.response.data)}</p>
+            <p>API Response: <pre>{JSON.stringify(response.response.data, null, 2)}</pre></p>
           </div>
       )}
       </div>
