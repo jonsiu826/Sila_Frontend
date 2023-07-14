@@ -22,7 +22,7 @@ const CheckKycForm = () => {
 
   return (
     <div>
-      <h3>Check KYC</h3>  
+      <h3><a href="https://docs.silamoney.com/docs/check_kyc" target="_blank">Check KYC</a></h3>  
       <form onSubmit={handleCheckKyc}>
         <input type="text" value={userHandle} onChange={handleInputChange} />
         <button type="submit">Check KYC</button>

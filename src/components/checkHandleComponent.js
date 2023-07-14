@@ -22,7 +22,7 @@ const CheckHandleForm = () => {
 
   return (
     <div>
-      <h3>Check Handle</h3>  
+      <h3><a href="https://docs.silamoney.com/docs/check_handle" target="_blank">Check Handle</a></h3>  
       <form onSubmit={handleCheckAvailability}>
         <input type="text" value={userHandle} onChange={handleInputChange} />
         <button type="submit">Check Availability</button>

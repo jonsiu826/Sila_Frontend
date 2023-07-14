@@ -67,7 +67,7 @@ function RegisterForm() {
     // Render the form
     return (
         <div>
-      <h3>Register for Individuals</h3>
+      <h3><a href="https://docs.silamoney.com/docs/register" target="_blank">Register</a></h3>  
       <form onSubmit={handleRegisterSubmit}>
         <input
           type="text"

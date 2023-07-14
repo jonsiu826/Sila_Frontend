@@ -18,7 +18,7 @@ const AuthTokenForm = () => {
 
   return (
     <div>
-      <h3>Auth Token Generator</h3>
+      <h3><a href="https://docs.silamoney.com/docs/auth_token" target="_blank">Auth Token Generator</a></h3>  
       <h4>Add this token to your .env file</h4>  
       <form onSubmit={handleAuthToken}>
         <button type="submit">Get Auth Token</button>
