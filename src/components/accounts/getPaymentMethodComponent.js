@@ -22,7 +22,7 @@ const GetPaymentMethodForm = () => {
 
   return (
     <div>
-      <h3>Get Payment Method KYC</h3>  
+      <h3><a href="https://docs.silamoney.com/docs/get_payment_methods" target="_blank">Get Payment Method KYC</a></h3>   
       <form onSubmit={handleGetPaymentMethod}>
         <input type="text" placeholder='userhandle' value={userHandle} onChange={handleInputChange} />
         <button type="submit">Get Payment Method</button>

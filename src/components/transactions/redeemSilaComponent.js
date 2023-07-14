@@ -28,7 +28,7 @@ const RedeemSilaForm = () => {
 
   return (
     <div>
-      <h3>Redeem Sila</h3>  
+      <h3><a href="https://docs.silamoney.com/docs/redeem_sila" target="_blank">Redeem Sila </a></h3>  
       <form onSubmit={handleRequestRedeemSila}>
       <input 
          type="text" 

@@ -24,7 +24,7 @@ const TransferSilaForm = () => {
 
   return (
     <div>
-      <h3>Transfer Sila</h3>  
+      <h3><a href="https://docs.silamoney.com/docs/transfer_sila" target="_blank">Transfer Sila </a></h3>   
       <form onSubmit={handleRequestTransferSila}>
       <input 
          type="text" 

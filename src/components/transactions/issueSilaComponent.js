@@ -27,7 +27,7 @@ const IssueSilaForm = () => {
 
   return (
     <div>
-      <h3>Issue Sila</h3>  
+      <h3><a href="https://docs.silamoney.com/docs/issue_sila" target="_blank">Issue Sila </a></h3>  
       <form onSubmit={handleRequestIssueSila}>
       <input 
          type="text" 
