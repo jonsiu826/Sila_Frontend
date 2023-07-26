@@ -10,6 +10,7 @@ import TransferSilaForm from './components/transactions/transferSilaComponent';
 import RedeemSilaForm from './components/transactions/redeemSilaComponent';
 import GetPaymentMethodForm from './components/accounts/getPaymentMethodComponent';
 import LinkAccountForm from './components/accounts/linkAccountComponent';
+import GetAccountsForm from './components/accounts/getAccountsComponent';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <RequestKycForm />
       <CheckKycForm />
       <LinkAccountForm />
+      <GetAccountsForm />
       <IssueSilaForm />
       <TransferSilaForm />
       <RedeemSilaForm />

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import api from '../../routes/accounts/getPaymentMethodApis';
+import api from '../../routes/accounts/getAccountsApi';
 
-const GetPaymentMethodForm = () => {
+const GetAccountsForm = () => {
   const [userHandle, setUserHandle] = useState('');
   const [response, setResponse] = useState(null);
 
@@ -9,23 +9,23 @@ const GetPaymentMethodForm = () => {
     setUserHandle(event.target.value);
   };
 
-  const handleGetPaymentMethod = async (event) => {
+  const handleGetAccounts = async (event) => {
     event.preventDefault();
 
     try {
-      const response = await api.getPaymentMethods({ userHandle });
+      const response = await api.getAccounts({ userHandle });
       setResponse({ userHandle, response });
     } catch (error) {
-      console.error('Error getting payment methods:', error);
+      console.error('Error getting Accounts:', error);
     }
   };
 
   return (
     <div>
-      <h3><a href="https://docs.silamoney.com/docs/get_payment_methods" target="_blank">Get Payment Method</a></h3>   
-      <form onSubmit={handleGetPaymentMethod}>
+      <h3><a href="https://docs.silamoney.com/docs/get_accounts" target="_blank">Get Accounts</a></h3>   
+      <form onSubmit={handleGetAccounts}>
         <input type="text" placeholder='userhandle' value={userHandle} onChange={handleInputChange} />
-        <button type="submit">Get Payment Method</button>
+        <button type="submit">Get Accounts</button>
       </form>
       {response && (
         <div>
@@ -37,4 +37,4 @@ const GetPaymentMethodForm = () => {
   );
 };
 
-export default GetPaymentMethodForm;
+export default GetAccountsForm;
