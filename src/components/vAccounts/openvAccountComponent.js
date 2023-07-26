@@ -16,7 +16,6 @@ const OpenvAccountForm = () => {
     event.preventDefault();
 
     try {
-      console.log({ userHandle, virtualAccountName, achCreditEnabled, achDebitEnabled})
       const response = await api.openVirtualAccount({ userHandle, virtualAccountName, achCreditEnabled, achDebitEnabled});
       setResponse({ userHandle, response });
     } catch (error) {
