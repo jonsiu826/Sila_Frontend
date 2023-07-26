@@ -11,6 +11,7 @@ import RedeemSilaForm from './components/transactions/redeemSilaComponent';
 import GetPaymentMethodForm from './components/accounts/getPaymentMethodComponent';
 import LinkAccountForm from './components/accounts/linkAccountComponent';
 import GetAccountsForm from './components/accounts/getAccountsComponent';
+import OpenvAccountForm from './components/vAccounts/openvAccountComponent';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
       <TransferSilaForm />
       <RedeemSilaForm />
       <GetPaymentMethodForm />
+      <OpenvAccountForm />
     </div>
   );
 }
